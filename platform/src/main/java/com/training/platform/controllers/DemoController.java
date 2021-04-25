@@ -14,22 +14,23 @@ public class DemoController {
     @Autowired
     private UserRepository userRepository;
 
-//    @GetMapping(value = "")
-//    public String index() {
-//        List<User> users = userRepository.findAll();
-//        System.out.println("############### Find All User (In Console)###############");
-//        System.out.println(users);
-//        String tem = users.toString();
-//        return tem;
-////        return "Method GET, Function : index => SHOW data list on page";
-//    }
+    // @GetMapping(value = "")
+    // public String index() {
+    // List<User> users = userRepository.findAll();
+    // System.out.println("############### Find All User (In
+    // Console)###############");
+    // System.out.println(users);
+    // String tem = users.toString();
+    // return tem;
+    //// return "Method GET, Function : index => SHOW data list on page";
+    // }
 
     @GetMapping(value = "/{id}")
     public String showWithPath(@PathVariable String id) {
         Optional<User> user = userRepository.findById(Integer.parseInt(id));
         System.out.println("############### Find User By ID (In Console)###############");
         System.out.println(user);
-        String tem = user.toString();
+        // String tem = user.toString();
         return "Method Get, Function : show, ID : " + id + " => SHOW data by id on page with path";
     }
 
@@ -53,11 +54,12 @@ public class DemoController {
         System.out.println(users);
         return users;
     }
+
     // Example for findAllByParamsQuery
-//    @GetMapping(value = "/index9")
-//    public List<User> test2() {
-//        return userRepository.findAllByParamsQuery(0, "nakornpathom");
-//    }
+    // @GetMapping(value = "/index9")
+    // public List<User> test2() {
+    // return userRepository.findAllByParamsQuery(0, "nakornpathom");
+    // }
     @GetMapping(value = "/index4")
     public List<User> test2(@RequestParam String active, @RequestParam String city) {
         return userRepository.findAllByParamsQuery(Integer.parseInt(active), city);
@@ -69,10 +71,10 @@ public class DemoController {
         return userRepository.findAllByJpqlQuery();
     }
     // Example for findAllByJpqlParamsQuery
-//    @GetMapping(value = "/index6")
-//    public List<User> test4() {
-//        return userRepository.findAllByJpqlParamsQuery(0, "bangkok");
-//    }
+    // @GetMapping(value = "/index6")
+    // public List<User> test4() {
+    // return userRepository.findAllByJpqlParamsQuery(0, "bangkok");
+    // }
 
     @GetMapping(value = "/index7")
     public List<User> test4(@RequestParam Integer id) {
