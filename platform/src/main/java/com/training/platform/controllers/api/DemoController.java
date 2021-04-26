@@ -29,7 +29,6 @@ public class DemoController {
         Optional<User> user = userRepository.findById(Integer.parseInt(id));
         System.out.println("############### Find User By ID (In Console)###############");
         System.out.println(user);
-        String tem = user.toString();
         return "Method Get, Function : show, ID : " + id + " => SHOW data by id on page with path";
     }
 
